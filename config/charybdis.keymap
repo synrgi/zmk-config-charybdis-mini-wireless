@@ -9,9 +9,10 @@
 
 / {
     filters {
-        filter_deadzone {
+        filter_deadzone: filter_deadzone {
             compatible = "zmk,sensor-filter-deadzone";
-            threshold = <3>; // Tune this to increase or decrease deadzone
+            label = "filter_deadzone";
+            threshold = <3>;
         };
     };
 

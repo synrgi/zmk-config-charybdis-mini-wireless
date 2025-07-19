@@ -13,15 +13,19 @@
         device = <&trackball>;
         input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 1200>;
 
-        // Switch to auto-mouse temp layer, decrease sensitivity
-
         scroll {
             layers = <7>; // SCROLL
             input-processors =
-                <&zip_xy_scaler 1 5>,
-                <&zip_temp_layer 7 400>,
+                <&zip_xy_scaler 1 2>,
                 <&zip_xy_to_scroll_mapper>,
                 <&zip_scroll_transform (INPUT_TRANSFORM_Y_INVERT)>;
+        };
+
+        sniping {
+            layers = <8>; // SNIPING layer
+            input-processors = 
+                <&zip_xy_scaler 1 1>, // Lowest sensitivity (1:1 scaling)
+                <&zip_temp_layer 8 100>; // 100ms auto-disable
         };
     };
 

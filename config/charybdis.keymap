@@ -8,10 +8,17 @@
 #define U_TAPPING_TERM 200
 
 / {
+    filters {
+        filter_deadzone {
+            compatible = "zmk,sensor-filter-deadzone";
+            threshold = <3>; // Tune this to increase or decrease deadzone
+        };
+    };
+
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 1200>;
+        input-processors = <&filter_deadzone>, <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 1200>;
 
         scroll {
             layers = <7>; // SCROLL
@@ -22,12 +29,10 @@
         };
 
         sniping {
-            layers = <8>; // SNIPING layer
+            layers = <8>; // SNIPING 
             input-processors =
                 <&zip_xy_scaler 1 1>,
-                // Lowest sensitivity (1:1 scaling),
                 <&zip_temp_layer 8 100>;
- // 100ms auto-disable
         };
     };
 

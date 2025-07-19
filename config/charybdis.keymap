@@ -8,18 +8,10 @@
 #define U_TAPPING_TERM 200
 
 / {
-    filters {
-        filter_deadzone: filter_deadzone {
-            compatible = "zmk,sensor-filter-deadzone";
-            label = "filter_deadzone";
-            threshold = <3>;
-        };
-    };
-
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&filter_deadzone>, <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 1200>;
+        input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 1200>;
 
         scroll {
             layers = <7>; // SCROLL

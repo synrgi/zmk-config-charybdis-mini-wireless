@@ -1,10 +1,18 @@
 #include "charybdis-layouts.dtsi"
 #include <dt-bindings/zmk/matrix_transform.h>
+#include <zephyr/dt-bindings/input/input-event-codes.h>
+
 
 / {
 
     vbatt: vbatt {
 	compatible = "zmk,battery-nrf-vddh";
+    };
+
+    zip_temp_layer: zip_temp_layer {
+        compatible = "zmk,input-processor-temp-layer";
+        #input-processor-cells = <2>;
+        require-prior-idle-ms = <100>;
     };
           
     default_transform: keymap_transform_0 {

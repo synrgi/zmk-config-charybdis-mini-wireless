@@ -10,7 +10,7 @@
 #define U_TAPPING_TERM 200
 
 / {
-    zip_temp_layer_mouse: zip_temp_layer_mouse {
+    zip_temp_layer: zip_temp_layer {
         compatible = "zmk,input-processor-temp-layer";
         #input-processor-cells = <2>;
         require-prior-idle-ms = <2000>;
@@ -19,7 +19,7 @@
     trackball_listener {
         compatible = "zmk,input-listener";
         device = <&trackball>;
-        input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer_mouse 6 600>;
+        input-processors = <&zip_xy_scaler 1 2>, <&zip_temp_layer 6 600>;
 
         scroll {
             layers = <7>; // SCROLL

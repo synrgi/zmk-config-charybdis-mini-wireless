@@ -18,6 +18,19 @@
     col-offset = <5>;
 };
 
+&i2c1 {
+    status = "okay";
+
+    nice_view@3c {
+        compatible = "zmk,nice-view";
+        reg = <0x3c>;
+        label = "NICE_VIEW";
+        enable-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>; // P1.13
+        sda-pin = <11>; // P1.11
+        scl-pin = <10>; // P0.10
+    };
+};
+
 &kscan0 {
 	col-gpios
 		= <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -28,3 +41,4 @@
 		, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
 };
+

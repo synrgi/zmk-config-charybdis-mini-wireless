@@ -18,30 +18,6 @@
     col-offset = <5>;
 };
 
-spi1: &spi1 {
-    compatible = "nordic,nrf-spim";
-    status = "okay";
-
-    pinctrl-0 = <&spi1_default>;
-    pinctrl-1 = <&spi1_sleep>;
-    pinctrl-names = "default", "sleep";
-
-    /* Use one of your free pins as chip select */
-    cs-gpios = <&gpio0 10 GPIO_ACTIVE_LOW>;
-
-    /* Nice!View display definition */
-    nice_view: nice_view@0 {
-        compatible = "zmk,display-ssd1306-spi";
-        reg = <0>;
-        spi-max-frequency = <8000000>;
-
-        dc-gpios = <&gpio1 11 GPIO_ACTIVE_LOW>;
-        reset-gpios = <&gpio1 13 GPIO_ACTIVE_LOW>;
-        width = <128>;
-        height = <32>;
-    };
-};
-
 &kscan0 {
 	col-gpios
 		= <&pro_micro 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
@@ -52,6 +28,7 @@ spi1: &spi1 {
 		, <&pro_micro 8 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
 		;
 };
+
 
 
 

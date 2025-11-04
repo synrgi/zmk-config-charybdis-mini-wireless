@@ -30,7 +30,7 @@
 
         sniping {
             layers = <8>; // SNIPING 
-            input-processors = <&zip_xy_scaler 1 8>, <&zip_temp_layer 8 100>;
+            input-processors = <&zip_xy_scaler 1 8>;
         };
     };
 
